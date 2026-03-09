@@ -82,6 +82,45 @@ width:100%;
 </div>
 
 </div>
+<button onclick="openForm()" style="width:100%;padding:15px;font-size:18px;margin-top:20px;">
+Разместить объявление
+</button>
 
+<div id="form" style="display:none;margin-top:20px;background:#555;padding:15px;">
+
+<input id="title" placeholder="Название товара" style="width:100%;margin-bottom:10px;padding:10px">
+
+<input id="price" placeholder="Цена" style="width:100%;margin-bottom:10px;padding:10px">
+
+<input id="image" placeholder="Ссылка на фото" style="width:100%;margin-bottom:10px;padding:10px">
+
+<button onclick="addItem()" style="width:100%;padding:10px;">Добавить</button>
+
+</div>
+
+<script>
+
+function openForm(){
+document.getElementById("form").style.display="block"
+}
+
+function addItem(){
+
+let title=document.getElementById("title").value
+let price=document.getElementById("price").value
+let image=document.getElementById("image").value
+
+let card=`
+<div class="card">
+<img src="${image}">
+<p>${title} — ${price} ₽</p>
+</div>
+`
+
+document.querySelector(".items").innerHTML+=card
+
+}
+
+</script>
 </body>
 </html>
